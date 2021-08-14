@@ -8,8 +8,9 @@ supported = app.config.get('BABEL_SUPPORTED_LOCALES', ['en', 'ru', 'pt'])
 default = app.config.get('BABEL_DEFAULT_LOCALE', 'en')
 
 motto = {'en': 'Semantyca of your business', 'ru': 'Семантика вашего бизнеса', 'pt': 'Semantyca do seu negócio'}
-home_button = {'en': 'Home', 'ru': 'Домой', 'pt': 'Para casa'}
-tasks_button = {'en': 'Tasks', 'ru': 'Задачи', 'pt': 'Tarefas'}
+subMotto = {'en': 'This is an inception. All you get is this web site', 'ru': 'Это начало. Все, что у нас есть, это этот сайт', 'pt': 'Este é um começo. Tudo que nos temos é este site'}
+homeButton = {'en': 'Home', 'ru': 'Домой', 'pt': 'Para casa'}
+tasksButton = {'en': 'Tasks', 'ru': 'Задачи', 'pt': 'Tarefas'}
 
 @babel.localeselector
 def get_locale():
@@ -31,11 +32,10 @@ def change_lang(lang):
         'lang': lang,
         'name': 'Semantyca',
         'motto': motto.get(lang),
-        'subMotto': 'This is an inception\nAll you get is this web site',
-        'menu': {
-            'home': home_button.get(lang),
-            'tasks': tasks_button.get(lang)
-        }
+        'subMotto':  subMotto.get(lang),
+        'menuHome':  homeButton.get(lang),
+        'menuTasks': tasksButton.get(lang)
+
     }
     return jsonify(page)
 
